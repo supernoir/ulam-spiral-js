@@ -6,3 +6,10 @@ describe('Mocha', function() {
    expect(true).to.be.ok;
     });
 });
+
+describe('Canvas', function() {
+    it('should be able to access the canvas', function(){
+        var app = require('../app.js');
+        expect(app.getCanvas()).to.be.ok;
+    });
+});

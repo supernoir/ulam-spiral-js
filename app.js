@@ -1,3 +1,14 @@
 'use strict'
 
-console.log("Let's draw an Ulam Spiral!");
+var drawCanvas = function draw(){
+        var canvas = document.getElementById('tutorial');
+        if (canvas.getContext){
+          var ctx = canvas.getContext('2d');
+        }
+      }
+
+var getCanvas = function(){
+    return drawCanvas
+}
+
+module.exports = { getCanvas: getCanvas };
