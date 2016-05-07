@@ -1,0 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);
+
+body{
+    background-color: rgb(50,50,150);
+    font-family: "Noto Sans","Helvetica",sans-serif;
+    margin: 0px;
+    padding: 0px;    
+    color: rgb(150,150,250);
+}
+
+h1{
+    color: white;
+    font-weight: 700;
+}
+
+h2{
+    font-weight: 400;
+}
+
+.content{
+    margin: 20px;
+    display: flex;
+}
+
+#canvas-scope{
+    border: 1px solid rgb(150,150,250);
+    background: rgba(255,255,255,0.9);
+}
+
+

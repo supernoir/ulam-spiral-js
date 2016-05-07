@@ -9,7 +9,7 @@ describe('Mocha', function() {
 
 describe('Canvas', function() {
     it('should be able to access the canvas', function(){
-        var app = require('../app.js');
-        expect(app.getCanvas()).to.be.ok;
+        var script = require('../app.js');
+        expect(script.getCanvas()).to.have.attr('#canvas-scope');
     });
 });
