@@ -23,8 +23,8 @@ h2{
 }
 
 #canvas-scope{
-    border: 1px solid rgb(150,150,250);
-    background: rgba(255,255,255,0.9);
+    border: 5px solid rgb(255,255,255);
+    background: rgba(255,255,255,0.7);
 }
 
 
