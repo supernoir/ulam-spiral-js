@@ -80,24 +80,30 @@ let orientPointer = () => {
 }
 
 
+
 ctx.beginPath();
 ctx.moveTo(100,100);
 ctx.lineTo(110,100);
-ctx.stroke();
 ctx.lineTo(110,90);
-ctx.stroke();
 ctx.lineTo(100,90);
+ctx.lineTo(90,90);
+ctx.lineTo(90,100);
+ctx.lineTo(90,110);
+ctx.lineTo(100,110);
+ctx.lineTo(110,110);
+ctx.lineTo(120,110);
+ctx.lineTo(120,100);
+ctx.lineTo(120,90);
 ctx.stroke();
 
-ctx.fillStyle = '#ff33ff';
-ctx.fillRect(60,60,5,5);
-ctx.translate(10,0);
-ctx.fillRect(60,60,5,5);
-ctx.translate(0,-10);
-ctx.fillRect(60,60,5,5);
-ctx.translate(0,-10);
-ctx.fillRect(60,60,5,5);
 
+ctx.fillRect(60,60,10,10);
+ctx.translate(20,0);
+ctx.fillRect(60,60,10,10);
+ctx.translate(0,-20);
+ctx.fillRect(60,60,10,10);
+ctx.translate(-20,0);
+ctx.fillRect(60,60,10,10);
 
 
 primePrinter(102);
