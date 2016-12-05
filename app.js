@@ -23,6 +23,3 @@ var getCanvas = function(){
         return app.canvasloaded
       }
      
-
-
-module.exports = { getCanvas: getCanvas };
