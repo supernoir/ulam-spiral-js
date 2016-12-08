@@ -33,55 +33,75 @@ let isPrime = (number) => {
 let directionChanger = (w,h) => {
   ctx.beginPath();
   ctx.moveTo(w,h);
-  ctx.fillRect(w,h,5,5);
-
+//  ctx.fillRect(w,h,5,5);
   console.log(w,h);
   
   let m,n;
-  for(m = 0; m < 10; m++) {
+  for(m = 0; m <= 20; m++) {
     for(n = 0; n < 4; n++) {
       if(isPrime(m)){
-      ctx.fillStyle="#006699";
+      ctx.fillStyle="#00FFFF";
     } else {
-      ctx.fillStyle="#DFDFDF";
+      ctx.fillStyle="#FF00FF";
     }
+    
       console.log(`M: ${m} N: ${n}`);
+
       switch(n) {
         case 0:
           w = w + m * 10;
+          
           console.log('-0-');
           console.log(w,h);
           console.log(m,n);
+          
           ctx.fillRect(w-2.5,h-2.5,5,5);
           ctx.lineTo(w,h);
+          break;
         case 1:
+          
           h = h - m * 10;
+          
           console.log('-1-');
           console.log(w,h);
           console.log(m,n);
+          
           ctx.fillRect(w-2.5,h-2.5,5,5);
           ctx.lineTo(w,h);
+          break;
         case 2:
           w = w - m * 10;
+
+          
           console.log('-2-');
           console.log(w,h);
           console.log(m,n);
+
           ctx.fillRect(w-2.5,h-2.5,5,5);
           ctx.lineTo(w,h);
+          break;
         case 3:
+          //w = w - m * 10;
           h = h + m * 10;
+          
           console.log('-3-');
           console.log(w,h);
           console.log(m,n);
+          
           ctx.fillRect(w-2.5,h-2.5,5,5);
           ctx.lineTo(w,h);
+          break;
         case 4:
+          //w = w + m * 10;
           w = w + m * 10;
-          console.log('-4-');
+          
+          console.log('-3-');
           console.log(w,h);
           console.log(m,n);
+          
           ctx.fillRect(w-2.5,h-2.5,5,5);
           ctx.lineTo(w,h);
+          break;
       }
 
       }   
@@ -116,6 +136,4 @@ function iterateInject() {
 
   }
 }
-
-
 
