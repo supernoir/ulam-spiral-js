@@ -1,9 +1,8 @@
 'use strict';
 
-// Prime Array
-let p = [];
+let direct = {};
 
-// Canvas
+// Initializing the Canvas
 let c = document.getElementById("canvas-scope");
 let ctx = c.getContext("2d");
 ctx.save();
@@ -11,87 +10,107 @@ ctx.save();
 const WIDTH = c.width;
 const HEIGHT = c.height;
 
-let isPrime = (number) => {
 
+let isPrime = (number) => {
   if (number < 2) {
     return false;
   }
-
   if (number === 2) {
     return true;
   } else if (number % 2 === 0) {
     return false;
   }
-
   for (let i = 3; i*i <= number; i += 2) {
     if (number % i === 0) {
       return false;
     }
   }
   return true;
-
 }
 
-let primePrinter = (max) => {
-    for(let i = 0; i < max; i ++){
-      if(isPrime(i) == false){
-        ctx.fillStyle="#FF0000";
-        ctx.fillRect(10,10,5,5);
-        ctx.translate(10,10);
-        console.log('○ ');
-        if(i > 100){
-          ctx.restore();
-          ctx.translate(10,10);
-          console.log(i + ' is bigger than 100');
-        } else if (i == 100){
-          console.log(i + ' is exactly 100');
-        } else if (i < 100){
-          console.log(i + ' is less than 100');
-        }
-      } else {
-        ctx.fillStyle = "#336699";
-        ctx.fillRect(10,10,5,5);
-        ctx.translate(10,0);
-        console.log('● ');
-        p.push(i);
-        if(i > 100){
-          ctx.restore();
-          ctx.translate(10,10);
-          console.log(i + ' is bigger than 100');
-        } else if (i == 100){
-          console.log(i + ' is exactly 100');
-        } else if (i < 100){
-          console.log(i + ' is less than 100');
-        }
-      }
-    }
-}
 
-let pushPrime = (a) => {
-  p.push(a);
-}
 
-let orientPointer = () => {
-  for (let i = 0; i < 100; i += 10){
-    ctx.fillRect(20,20,5,5);
-    if(i % 2 == 0){
-    ctx.translate(i*2,10); 
+let directionChanger = (w,h) => {
+  ctx.beginPath();
+  ctx.moveTo(w,h);
+  ctx.fillRect(w,h,5,5);
+
+  console.log(w,h);
+  
+  let m,n;
+  for(m = 0; m < 10; m++) {
+    for(n = 0; n < 4; n++) {
+      if(isPrime(m)){
+      ctx.fillStyle="#006699";
     } else {
-      ctx.translate(i,0);
+      ctx.fillStyle="#DFDFDF";
     }
+      console.log(`M: ${m} N: ${n}`);
+      switch(n) {
+        case 0:
+          w = w + m * 10;
+          console.log('-0-');
+          console.log(w,h);
+          console.log(m,n);
+          ctx.fillRect(w-2.5,h-2.5,5,5);
+          ctx.lineTo(w,h);
+        case 1:
+          h = h - m * 10;
+          console.log('-1-');
+          console.log(w,h);
+          console.log(m,n);
+          ctx.fillRect(w-2.5,h-2.5,5,5);
+          ctx.lineTo(w,h);
+        case 2:
+          w = w - m * 10;
+          console.log('-2-');
+          console.log(w,h);
+          console.log(m,n);
+          ctx.fillRect(w-2.5,h-2.5,5,5);
+          ctx.lineTo(w,h);
+        case 3:
+          h = h + m * 10;
+          console.log('-3-');
+          console.log(w,h);
+          console.log(m,n);
+          ctx.fillRect(w-2.5,h-2.5,5,5);
+          ctx.lineTo(w,h);
+        case 4:
+          w = w + m * 10;
+          console.log('-4-');
+          console.log(w,h);
+          console.log(m,n);
+          ctx.fillRect(w-2.5,h-2.5,5,5);
+          ctx.lineTo(w,h);
+      }
+
+      }   
+    }
+    ctx.stroke();  
   }
-}
+
+
+directionChanger(WIDTH/2,HEIGHT/2);
+
+
+
+
 
 function iterateInject() {
-  for(let itr = 0; itr <= 60; itr++){
+  for(let itr = 0; itr <= 100; itr++){
     let inj = 4;
-    ctx.fillRect(20,20,5,5);
+    ctx.fillRect(WIDTH/2,HEIGHT/2,5,5);
+    if(isPrime(itr)){
+      ctx.fillStyle="#006699";
+    } else {
+      ctx.fillStyle="#DFDFDF";
+    }
     if(itr % inj == 0){
       ctx.translate(itr*2,0);
       itr++;
     } else {
       inj++;
-      console.log(`Iterating: ${itr}`);
+      //console.log(`Iterating: ${itr}`);
       ctx.translate(itr,0);
     }
 
@@ -99,34 +118,4 @@ function iterateInject() {
 }
 
 
-iterateInject();
-
-
-ctx.beginPath();
-ctx.moveTo(100,100);
-ctx.lineTo(110,100);
-ctx.lineTo(110,90);
-ctx.lineTo(100,90);
-ctx.lineTo(90,90);
-ctx.lineTo(90,100);
-ctx.lineTo(90,110);
-ctx.lineTo(100,110);
-ctx.lineTo(110,110);
-ctx.lineTo(120,110);
-ctx.lineTo(120,100);
-ctx.lineTo(120,90);
-ctx.stroke();
-
-
-ctx.fillRect(60,60,10,10);
-ctx.translate(20,0);
-ctx.fillRect(60,60,10,10);
-ctx.translate(0,-20);
-ctx.fillRect(60,60,10,10);
-ctx.translate(-20,0);
-ctx.fillRect(60,60,10,10);
-
-
-//primePrinter(102);
-//orientPointer();
 
