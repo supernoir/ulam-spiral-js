@@ -1,10 +1,7 @@
 'use strict';
 
-let direct = {};
-
-// Initializing the Canvas
-let c = document.getElementById("canvas-scope");
-let ctx = c.getContext("2d");
+const c = document.getElementById("canvas-scope");
+const ctx = c.getContext("2d");
 ctx.save();
 
 const WIDTH = c.width;
@@ -33,16 +30,17 @@ let isPrime = (number) => {
 let directionChanger = (w,h) => {
   ctx.beginPath();
   ctx.moveTo(w,h);
-//  ctx.fillRect(w,h,5,5);
-  console.log(w,h);
+  console.log('Inital: ',w,h);
   
   let m,n;
   for(m = 0; m <= 20; m++) {
-    for(n = 0; n < 4; n++) {
+    for(n = 0; n < 5; n++) {
       if(isPrime(m)){
       ctx.fillStyle="#00FFFF";
+      console.log(`${m} is a Prime`);
     } else {
       ctx.fillStyle="#FF00FF";
+      console.log(`${m} is not a Prime`);
     }
     
       console.log(`M: ${m} N: ${n}`);
@@ -51,56 +49,48 @@ let directionChanger = (w,h) => {
         case 0:
           w = w + m * 10;
           
-          console.log('-0-');
-          console.log(w,h);
-          console.log(m,n);
-          
+          console.log('Case 0: ',w,h);
           ctx.fillRect(w-2.5,h-2.5,5,5);
+          ctx.strokeStyle="#FF0000";
           ctx.lineTo(w,h);
           break;
         case 1:
           
-          h = h - m * 10;
-          
-          console.log('-1-');
-          console.log(w,h);
-          console.log(m,n);
+          h = h - m * 10;          
+          console.log('Case 1: ',w,h);
           
           ctx.fillRect(w-2.5,h-2.5,5,5);
+          ctx.strokeStyle="#00FF00";
           ctx.lineTo(w,h);
           break;
         case 2:
           w = w - m * 10;
 
           
-          console.log('-2-');
-          console.log(w,h);
-          console.log(m,n);
+          console.log('Case 2: ',w,h);
 
           ctx.fillRect(w-2.5,h-2.5,5,5);
+          ctx.strokeStyle="#FF00FF";
           ctx.lineTo(w,h);
           break;
         case 3:
-          //w = w - m * 10;
           h = h + m * 10;
           
-          console.log('-3-');
-          console.log(w,h);
-          console.log(m,n);
+          console.log('Case 3: ',w,h);
           
           ctx.fillRect(w-2.5,h-2.5,5,5);
+          ctx.strokeStyle="#FFFF00";
           ctx.lineTo(w,h);
           break;
         case 4:
-          //w = w + m * 10;
           w = w + m * 10;
           
-          console.log('-3-');
-          console.log(w,h);
-          console.log(m,n);
+          console.log('Case 4: ',w,h);
           
           ctx.fillRect(w-2.5,h-2.5,5,5);
+          ctx.strokeStyle="#0000FF";
           ctx.lineTo(w,h);
+          w = w+10;
           break;
       }
 
@@ -112,28 +102,4 @@ let directionChanger = (w,h) => {
 
 directionChanger(WIDTH/2,HEIGHT/2);
 
-
-
-
-
-function iterateInject() {
-  for(let itr = 0; itr <= 100; itr++){
-    let inj = 4;
-    ctx.fillRect(WIDTH/2,HEIGHT/2,5,5);
-    if(isPrime(itr)){
-      ctx.fillStyle="#006699";
-    } else {
-      ctx.fillStyle="#DFDFDF";
-    }
-    if(itr % inj == 0){
-      ctx.translate(itr*2,0);
-      itr++;
-    } else {
-      inj++;
-      //console.log(`Iterating: ${itr}`);
-      ctx.translate(itr,0);
-    }
-
-  }
-}
 
