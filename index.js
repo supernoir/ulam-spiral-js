@@ -8,6 +8,9 @@ let c = document.getElementById("canvas-scope");
 let ctx = c.getContext("2d");
 ctx.save();
 
+const WIDTH = c.width;
+const HEIGHT = c.height;
+
 let isPrime = (number) => {
 
   if (number < 2) {
@@ -79,6 +82,24 @@ let orientPointer = () => {
   }
 }
 
+function iterateInject() {
+  for(let itr = 0; itr <= 60; itr++){
+    let inj = 4;
+    ctx.fillRect(20,20,5,5);
+    if(itr % inj == 0){
+      ctx.translate(itr*2,0);
+      itr++;
+    } else {
+      inj++;
+      console.log(`Iterating: ${itr}`);
+      ctx.translate(itr,0);
+    }
+
+  }
+}
+
+
+iterateInject();
 
 
 ctx.beginPath();
@@ -106,6 +127,6 @@ ctx.translate(-20,0);
 ctx.fillRect(60,60,10,10);
 
 
-primePrinter(102);
-orientPointer();
+//primePrinter(102);
+//orientPointer();
 
