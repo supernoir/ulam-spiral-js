@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 'use strict'
 
 var app = {}
@@ -37,3 +38,5 @@ var drawCanvas = function() {
 
 
 module.exports = { drawCanvas: drawCanvas };
+=======
+>>>>>>> b3d1f9afac9e52014decf2932be807c1db9ef2f3
